@@ -212,6 +212,8 @@ def build_presence(
     if t.distance_km > 0.5 and not in_race:
         small_text_bits.append(f"{t.distance_km:.1f} km this session")
 
+    small_text = "  •  ".join(small_text_bits) if small_text_bits else f"Class {class_label}"
+
     payload = {
         "details": details[:128],
         "state": state[:128],
@@ -219,7 +221,7 @@ def build_presence(
         "large_image": "forza",
         "large_text": f"Forza Horizon 6  •  {int(t.rpm)} RPM",
         "small_image": class_asset_key(t.car_class),
-        "small_text": "  •  ".join(small_text_bits) if small_text_bits else class_label,
+        "small_text": small_text[:128],
     }
     return payload
 
@@ -296,8 +298,8 @@ def main() -> int:
                 print("Discord pipe closed, reconnecting...")
                 rpc = None
             except Exception as exc:
-                print(f"Presence update failed ({type(exc).__name__}: {exc}); reconnecting.")
-                rpc = None
+                # Validation errors etc. don't require reconnect — just log and continue.
+                print(f"Presence update failed ({type(exc).__name__}: {exc})")
     except KeyboardInterrupt:
         print("\nShutting down.")
     finally:
