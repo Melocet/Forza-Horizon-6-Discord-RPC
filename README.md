@@ -1,6 +1,16 @@
+> [!WARNING]
+> **This project is outdated and no longer maintained.**
+>
+> Forza Discord Rich Presence now lives in **[Glow L!VE Desktop](https://github.com/glow-moe/Glow-Live-Desktop)**.
+> It supports Forza Horizon 6 and Forza Horizon 5 through the same Data Out telemetry, plus League of Legends and more, and shows your live session on Discord, your glow.moe page and an OBS overlay. It updates itself.
+>
+> 👉 **[Download Glow L!VE Desktop](https://github.com/glow-moe/Glow-Live-Desktop/releases)**
+
+---
+
 # Forza Horizon 6 Discord RPC
 
-Discord Rich Presence bridge for **Forza Horizon 6** (also works with FH5). Reads Forza's `Data Out` UDP telemetry and mirrors your live driving state to your Discord profile — car, class, speed, gear, RPM, race position, lap times.
+Discord Rich Presence bridge for **Forza Horizon 6** (also works with FH5). Reads Forza's `Data Out` UDP telemetry and mirrors your live driving state to your Discord profile: car, class, speed, gear, RPM, race position, lap times.
 
 Works on **Linux** (native or Proton) and **Windows**.
 
@@ -87,7 +97,7 @@ Find the car name in-game and edit `car_names.json`:
   "3771": "Chevrolet Corvette E-Ray 2024",
 ```
 
-The script **hot-reloads** `car_names.json` every 30 seconds — no restart needed.
+The script **hot-reloads** `car_names.json` every 30 seconds, no restart needed.
 
 Pull requests with new car names welcome.
 
